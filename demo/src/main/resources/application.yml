@@ -1,6 +1,14 @@
 server:
   port: 8082
+
 spring:
+  profiles:
+    active: qa
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     password: shakib19
@@ -10,6 +18,45 @@ spring:
     hibernate:
       ddl-auto: update
     show:
-      show-sql: 'true                  '
+      show-sql: true
+welcome:
+  message: Welcome to backend development world
+
+---
+
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: shakib19
+    url: jdbc:mysql://localhost:3306/springApp-qa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show:
+      show-sql: true
+welcome:
+  message: Welcome to backend development world
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: shakib19
+    url: jdbc:mysql://localhost:3306/springApp-prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show:
+      show-sql: true
 welcome:
   message: Welcome to backend development world
