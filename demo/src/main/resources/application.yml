@@ -42,6 +42,12 @@ spring:
 welcome:
   message: Welcome to backend development world
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 ---
 
 spring:
